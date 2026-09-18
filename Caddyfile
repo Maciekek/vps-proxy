@@ -1,0 +1,15 @@
+# Global options only. Site blocks come from container labels.
+{
+	email {$ACME_EMAIL}
+}
+
+# Reusable snippet: apps import it with the label  caddy.import: secure
+(secure) {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+}
