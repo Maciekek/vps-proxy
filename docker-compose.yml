@@ -13,6 +13,7 @@ services:
     environment:
       CADDY_INGRESS_NETWORKS: web
       CADDY_DOCKER_CADDYFILE_PATH: /etc/caddy/Caddyfile
+      ACME_EMAIL: ${ACME_EMAIL:?set ACME_EMAIL in .env}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
